@@ -1,0 +1,277 @@
+/* App.css - Luxury theme */
+/* Font stack: Playfair Display for headings, Inter for UI */
+:root{
+  --bg: #0f1724;           /* deep navy */
+  --card: rgba(255,255,255,0.06);
+  --glass: rgba(255,255,255,0.04);
+  --muted: rgba(255,255,255,0.65);
+  --accent: linear-gradient(90deg,#7f5af0,#5ad0ff);
+  --accent-solid: #7f5af0;
+  --success: #35b06b;
+  --danger: #ff5c7c;
+  --soft-shadow: 0 10px 25px rgba(2,6,23,0.6);
+  --glass-border: rgba(255,255,255,0.06);
+  --glass-highlight: rgba(255,255,255,0.02);
+}
+
+/* Page background */
+html,body{
+  height: 100%;
+  margin: 0;
+  background: radial-gradient(1000px 300px at 10% 10%, rgba(127,90,240,0.12), transparent 8%),
+              radial-gradient(800px 300px at 90% 90%, rgba(90,208,255,0.06), transparent 10%),
+              var(--bg);
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  color: #e6eef8;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+/* container card */
+.container{
+  max-width: 1200px;
+  margin: 36px auto;
+  padding: 28px;
+  border-radius: 14px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  box-shadow: var(--soft-shadow);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(8px) saturate(120%);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Header */
+h1{
+  font-family: "Playfair Display", serif;
+  font-weight: 700;
+  margin: 0 0 10px 0;
+  color: #fff;
+  letter-spacing: -0.4px;
+  font-size: 28px;
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+/* small subtitle under header */
+.header-meta{
+  color: var(--muted);
+  font-size: 13px;
+  margin-bottom: 18px;
+}
+
+/* controls */
+.controls{
+  display:flex;
+  gap:12px;
+  justify-content:flex-end;
+  margin-bottom: 18px;
+}
+
+/* buttons */
+button{
+  cursor: pointer;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 14px;
+  transition: transform .12s ease, box-shadow .12s ease, opacity .12s;
+  box-shadow: 0 6px 18px rgba(15,23,36,0.45);
+  color: #b24343;;
+}
+
+/* primary gradient button */
+button.primary{
+  background: var(--accent);
+  background-clip: padding-box;
+  color: #fff;
+  box-shadow: 0 8px 30px rgba(127,90,240,0.18);
+}
+
+/* secondary ghost button */
+button.ghost{
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.06);
+  color: var(--muted);
+  box-shadow: none;
+}
+
+/* icon-style small */
+.btn-icon{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+}
+
+/* responsive table card wrapper */
+.table-card{
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.015));
+  border-radius: 12px;
+  padding: 14px;
+  border: 1px solid var(--glass-border);
+  margin-bottom: 20px;
+}
+
+/* table */
+table{
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: 14px;
+  color: #ecf6ff;
+  table-layout: fixed;
+}
+
+/* table head */
+thead tr{
+  background: linear-gradient(90deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
+}
+thead th{
+  text-align: left;
+  padding: 14px 18px;
+  font-weight: 600;
+  font-size: 13px;
+  color: rgba(255,255,255,0.9);
+  letter-spacing: 0.3px;
+  border-bottom: 1px solid rgba(255,255,255,0.03);
+}
+
+/* table body rows */
+tbody tr{
+  background: linear-gradient(180deg, rgba(255,255,255,0.012), transparent);
+  transition: transform .12s ease, background .12s;
+}
+tbody tr:hover{
+  transform: translateY(-4px);
+  background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
+  box-shadow: 0 6px 20px rgba(2,6,23,0.5);
+}
+
+/* cells */
+td{
+  padding: 14px 18px;
+  border-bottom: 1px dashed rgba(255,255,255,0.02);
+  vertical-align: middle;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* name cell style */
+.ticker{
+  display:flex;
+  gap:12px;
+  align-items:center;
+}
+.ticker .logo{
+  width:40px;
+  height:40px;
+  border-radius:8px;
+  background: linear-gradient(180deg,#fff2,#fff0);
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:700;
+  color:#051025;
+  box-shadow: inset 0 -6px 18px rgba(255,255,255,0.02);
+}
+
+/* small meta below stock name */
+.stock-meta{
+  display:block;
+  color: var(--muted);
+  font-size: 12px;
+  margin-top: 6px;
+}
+
+/* currency style */
+.money{
+  font-weight:700;
+  color:#eaf5ff;
+}
+
+/* gain/loss badges */
+.badge{
+  display:inline-block;
+  padding:6px 10px;
+  border-radius: 999px;
+  font-weight:700;
+  font-size:13px;
+  min-width:82px;
+  text-align:center;
+  box-shadow: 0 6px 16px rgba(2,6,23,0.45);
+}
+
+.gain{
+  background: linear-gradient(90deg, rgba(53,176,107,0.14), rgba(53,176,107,0.06));
+  color: var(--success);
+  border: 1px solid rgba(53,176,107,0.12);
+}
+
+.loss{
+  background: linear-gradient(90deg, rgba(255,92,124,0.12), rgba(255,92,124,0.05));
+  color: var(--danger);
+  border: 1px solid rgba(255,92,124,0.12);
+}
+
+/* pe/earnings cell */
+.small-muted{
+  color: var(--muted);
+  font-size: 13px;
+}
+
+/* Add stock form */
+.form{
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+  gap:12px;
+  margin-top: 12px;
+  align-items:center;
+}
+
+.form input, .form select{
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.04);
+  color: #e6eef8;
+  outline: none;
+  transition: box-shadow .12s, border-color .12s;
+}
+
+.form input:focus, .form select:focus{
+  border-color: rgba(127,90,240,0.9);
+  box-shadow: 0 8px 18px rgba(127,90,240,0.06);
+}
+
+/* form submit button style */
+.form button{
+  background: linear-gradient(90deg,#5ad0ff,#7f5af0);
+  color: #b24343;
+  padding: 11px 14px;
+  border-radius: 10px;
+  border: none;
+  font-weight:700;
+}
+
+/* responsive tweaks */
+@media (max-width: 900px){
+  thead th:nth-child(4),
+  td:nth-child(4),
+  thead th:nth-child(5),
+  td:nth-child(5),
+  thead th:nth-child(6),
+  td:nth-child(6) { display: none; } /* hide some cols on smaller screens */
+  .container { padding: 16px; margin: 16px; }
+  h1 { font-size: 22px; }
+}
+
+/* small footer meta */
+.footer-meta{
+  margin-top: 18px;
+  color: var(--muted);
+  font-size: 13px;
+  text-align:center;
+}
